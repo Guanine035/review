@@ -404,6 +404,37 @@ export const unit = {
   titleZh: '反证法',
   summary: '矛盾结构、奇偶矛盾、无理数与素数无限性',
   notes,
+  textbook: {
+    source: '教材 Main.pdf §6.1–6.4 Proof by Contradiction',
+    sections: [
+      {
+        heading: '§6.1 用矛盾证明 | Proving Statements with Contradiction',
+        body: [
+          r`思路：命题 $S$ 为假 $\Rightarrow$ 推出矛盾 $\Rightarrow$ $S$ 为真。结构：**Proof. Suppose $\sim S$.** ... contradiction。`,
+          r`经典例：$\sqrt{2}$ 是无理数。假设 $\sqrt{2}=\frac{a}{b}$ 为最简分数，则 $a^2=2b^2$，故 $a$ 为偶数，$a=2c$，代回得 $b^2=2c^2$，于是 $b$ 也为偶数，与 $\frac{a}{b}$ 最简矛盾。`,
+          r`矛盾的形式可以是：$R\land\sim R$、$0=1$、$n$ 既奇又偶、同时 $n\mid a$ 与 $n\nmid a$。`,
+          r`反证可以证明任意命题（不限条件句），但难度通常更高；先试直接证明与逆否。`
+        ]
+      },
+      {
+        heading: '§6.2 条件句的反证 | Conditional Statements by Contradiction',
+        body: [
+          r`证 $P\Rightarrow Q$ 用反证：假设 $P$ 真且 $Q$ 假（即 $P\land\sim Q$），推出矛盾。`,
+          r`注意与逆否的区别：逆否是假设 $\sim Q$ 推出 $\sim P$；反证是假设 $P\land\sim Q$ 导出矛盾。两者都能用，但假设不同。`,
+          r`例：若 $a,b\in\mathbb{Z}$ 且 $a\ge 2$，则 $a\nmid b$ 或 $a\nmid(b+1)$。假设 $a\mid b$ 且 $a\mid(b+1)$，则 $a\mid 1$，与 $a\ge 2$ 矛盾。`
+        ]
+      },
+      {
+        heading: '§6.3–6.4 技巧与建议 | Combining Techniques',
+        body: [
+          r`反证常与直接证明混用：在外层反证里，内部用直接证明或分类讨论。`,
+          r`例：证明 $\sqrt{2}+\sqrt{3}$ 是无理数。假设它是有理数 $r$，则 $\sqrt{3}=r-\sqrt{2}$，平方后得 $\sqrt{2}=\frac{r^2-1}{2r}$ 为有理数，与 $\sqrt{2}$ 无理矛盾。`,
+          r`矛盾点通常藏在"最简/最大/最小/唯一"这类极端性里：先问哪一步能立刻得到矛盾。`,
+          r`反证不是万能钥匙——能用直接证明时优先直接证明，结构更清晰、失分更少。`
+        ]
+      }
+    ]
+  },
   methods,
   examples,
   generators: { long: longGenerators, objective: objectiveGenerators }

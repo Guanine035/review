@@ -358,6 +358,37 @@ export const unit = {
   titleZh: '反证与举反例',
   summary: '举反例、反证存在句、反证条件句与矛盾法',
   notes,
+  textbook: {
+    source: '教材 Main.pdf §9.1–9.3 Disproof',
+    sections: [
+      {
+        heading: '§9.1 举反例 | Counterexamples',
+        body: [
+          r`要推翻全称命题 $\forall x,P(x)$，只需给出一个 counterexample：找一个 $x$ 使 $P(x)$ 为假。`,
+          r`例："Every prime number is odd" 为假，因为 $2$ 是素数且为偶数。`,
+          r`要推翻条件命题 $\forall x,(P(x)\Rightarrow Q(x))$，需找 $P(x)$ 为真而 $Q(x)$ 为假的 $x$；一个例子就够，但必须验证 $P$ 真、$Q$ 假两步。`,
+          r`例：若 $A,B,C$ 为集合，$A-(B\cap C)=(A-B)\cap(A-C)$ 是假命题。取 $A=\{1,2\}$、$B=\{1\}$、$C=\{2\}$：左边 $=\{1,2\}$，右边 $=\varnothing$。`
+        ]
+      },
+      {
+        heading: '§9.2 否定存在命题 | Disproving Existence Statements',
+        body: [
+          r`$\exists x,P(x)$ 的否定是 $\forall x,\sim P(x)$；否定存在命题就是要证明"对所有 $x$ 都不成立"。`,
+          r`例：命题 $\exists x\in\mathbb{R},\ x^4<x<x^2$ 为假。其否定为 $\forall x\in\mathbb{R},\ x^4\ge x$ 或 $x\ge x^2$；分类讨论 $x<0$、$0\le x<1$、$x\ge 1$ 即可。`,
+          r`证明否定时同样要写出对所有 $x$ 成立的完整论证，举一个反例不足以否定存在命题。`
+        ]
+      },
+      {
+        heading: '§9.3 反证法反证 | Disproof by Contradiction',
+        body: [
+          r`也可以先假设待否定命题为真，导出矛盾。结构：**Suppose $S$.** ... contradiction，故 $S$ 为假。`,
+          r`例：命题"存在最小正实数"为假。假设 $r>0$ 是最小正实数，则 $r/2>0$ 且 $r/2<r$，与最小性矛盾。`,
+          r`例：若 $A,B,C$ 为集合，$A\cup B=A\cup C\Rightarrow B=C$ 是假命题；反例 $A=\{1\}$、$B=\{2\}$、$C=\{3\}$，两边都是 $\{1,2,3\}$ 但 $B\neq C$。`,
+          r`反证与反例的选择：能直接构造反例就构造，反例写起来最短、最不容易失分。`
+        ]
+      }
+    ]
+  },
   methods,
   examples,
   generators: { long: longGenerators, objective: objectiveGenerators }

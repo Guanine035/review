@@ -605,6 +605,77 @@ export const unit = {
   titleZh: '逻辑',
   summary: '真值表、逻辑等价、量词、否定与推理',
   notes,
+  textbook: {
+    source: '教材 Main.pdf §2.1–2.12 Logic',
+    sections: [
+      {
+        heading: '§2.1 命题与开语句 | Statements',
+        body: [
+          r`**Statement**（命题）是有确定真假值的陈述句；**open sentence** 含变量，需代入具体值后才成为命题，例如 $P(x):x^2>0$。`,
+          r`数学中常用 $P,Q,R$ 表示命题，"not" 用 $\sim$ 或 $\neg$；命题的真假与我们知道与否无关。`
+        ]
+      },
+      {
+        heading: '§2.2 与、或、非 | And, Or, Not',
+        body: [
+          r`$P\land Q$ 为真当且仅当两者都真；$P\lor Q$ 为假当且仅当两者都假（这里的 "or" 是 inclusive or，至少一个为真）。`,
+          r`$\sim P$ 真值相反；真值表是定义联结词的唯一依据，不要凭语感。`,
+          r`层级：先 $\sim$，再 $\land$，最后 $\lor$；必要时加括号，例如 $P\lor Q\land R$ 表示 $P\lor(Q\land R)$。`
+        ]
+      },
+      {
+        heading: '§2.3 条件命题 | Conditional Statements',
+        body: [
+          r`$P\Rightarrow Q$ 只在 $P$ 真 $Q$ 假时为假，其余为真；因此 $F\Rightarrow F$、$F\Rightarrow T$ 都是真命题。`,
+          r`等价说法：if $P$ then $Q$；$Q$ if $P$；$P$ only if $Q$；$Q$ whenever $P$；$P$ is sufficient for $Q$；$Q$ is necessary for $P$。`,
+          r`$P$ 是 hypothesis（前件/充分条件），$Q$ 是 conclusion（后件/必要条件）；"only if" 提醒你把必要条件方向搞对。`
+        ]
+      },
+      {
+        heading: '§2.4–2.5 双条件与真值表 | Biconditional and Truth Tables',
+        body: [
+          r`$P\Leftrightarrow Q$ 在两者真值相同时为真，即 $(P\Rightarrow Q)\land(Q\Rightarrow P)$。`,
+          r`含 $n$ 个变量的真值表有 $2^n$ 行；把每个子公式的列都写出来，最后比较目标列。`,
+          r`两列完全相同 $\Rightarrow$ 逻辑等价；恒真称 **tautology**，恒假称 **contradiction**，例如 $P\lor\sim P$ 与 $P\land\sim P$。`
+        ]
+      },
+      {
+        heading: '§2.6 逻辑等价 | Logical Equivalence',
+        body: [
+          r`$P\Rightarrow Q\equiv\sim P\lor Q$；由此得逆否等价 $P\Rightarrow Q\equiv\sim Q\Rightarrow\sim P$。`,
+          r`De Morgan：$\sim(P\land Q)\equiv\sim P\lor\sim Q$，$\sim(P\lor Q)\equiv\sim P\land\sim Q$。`,
+          r`分配律：$P\land(Q\lor R)\equiv(P\land Q)\lor(P\land R)$，$P\lor(Q\land R)\equiv(P\lor Q)\land(P\lor R)$；$P\Leftrightarrow Q\equiv(P\land Q)\lor(\sim P\land\sim Q)$。`,
+          r`条件命题的否定：$\sim(P\Rightarrow Q)\equiv P\land\sim Q$，这是反证与反例的核心。`
+        ]
+      },
+      {
+        heading: '§2.7–2.8 量词 | Quantifiers',
+        body: [
+          r`$\forall x\,P(x)$：对所有 $x$ 成立；$\exists x\,P(x)$：存在至少一个 $x$ 使 $P(x)$ 成立。用 $x\in S$ 限定论域，如 $\forall x\in\mathbb{R},\ x^2\ge 0$。`,
+          r`嵌套量词顺序不能换：$\forall x\exists y\,(y>x)$ 在实数上为真，而 $\exists y\forall x\,(y>x)$ 为假。`,
+          r`$\exists!$ 表示"存在且唯一"；条件命题是"对所有取值成立"的全称命题，即 $\forall x,(P(x)\Rightarrow Q(x))$。`
+        ]
+      },
+      {
+        heading: '§2.9–2.10 翻译与否 | Translating and Negating',
+        body: [
+          r`否定规则：$\sim(\forall x\,P(x))\equiv\exists x\,\sim P(x)$，$\sim(\exists x\,P(x))\equiv\forall x\,\sim P(x)$。`,
+          r`否定时要"逐个翻转"：$\sim(\forall x\exists y\,P(x,y))\equiv\exists x\forall y\,\sim P(x,y)$。`,
+          r`英文句式对应：All $P$ are $Q$ $\to$ $\forall x,(P(x)\Rightarrow Q(x))$；Some $P$ are $Q$ $\to$ $\exists x,(P(x)\land Q(x))$；No $P$ is $Q$ $\to$ $\forall x,(P(x)\Rightarrow\sim Q(x))$。`,
+          r`"Some" 在逻辑里永远是"至少一个"，不是"某些但非全部"。`
+        ]
+      },
+      {
+        heading: '§2.11–2.12 逻辑推理 | Logical Inference',
+        body: [
+          r`Modus ponens：由 $P$ 与 $P\Rightarrow Q$ 推出 $Q$；Modus tollens：由 $\sim Q$ 与 $P\Rightarrow Q$ 推出 $\sim P$。`,
+          r`常见错误：由 $P\Rightarrow Q$ 与 $Q$ 推 $P$（肯定后件）；由 $P\Rightarrow Q$ 与 $\sim P$ 推 $\sim Q$（否定前件）。这两种推理都无效。`,
+          r`其他有效式：假言三段论 $P\Rightarrow Q,\ Q\Rightarrow R\vdash P\Rightarrow R$；析取三段论 $P\lor Q,\ \sim P\vdash Q$。`,
+          r`$\Rightarrow$ 是命题内部的联结词；$\vdash$ 表示推理关系，两者不要混用。`
+        ]
+      }
+    ]
+  },
   methods,
   examples,
   generators: { long: longGenerators, objective: objectiveGenerators }

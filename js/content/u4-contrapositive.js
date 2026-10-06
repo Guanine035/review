@@ -365,6 +365,41 @@ export const unit = {
   titleZh: '逆否证明',
   summary: '逆否命题、整除与同余的逆否证明',
   notes,
+  textbook: {
+    source: '教材 Main.pdf §5.1–5.3 Contrapositive Proof',
+    sections: [
+      {
+        heading: '§5.1 逆否证明 | Contrapositive Proof',
+        body: [
+          r`因为 $P\Rightarrow Q\equiv\sim Q\Rightarrow\sim P$，可以"假设 $\sim Q$，证明 $\sim P$"。`,
+          r`结构：**Proof. (Contrapositive) Suppose $\sim Q$.** $\to$ 变形 $\to$ **Therefore $\sim P$. $\blacksquare$**`,
+          r`适合时机：$Q$ 含否定词（odd、$\nmid$、irrational），或直接假设 $P$ 信息太少；先比较 $P\Rightarrow Q$ 与 $\sim Q\Rightarrow\sim P$ 哪个更好展开。`,
+          r`例：若 $x^2$ 是偶数，则 $x$ 是偶数。取逆否：若 $x$ 是奇数，则 $x=2a+1$，$x^2=2(2a^2+2a)+1$ 为奇数，与 $x^2$ 为偶数矛盾。`,
+          r`例：若 $x,y\in\mathbb{Z}$ 且 $xy$ 是奇数，则 $x,y$ 都是奇数。逆否：只要有一个是偶数，乘积就是偶数。`
+        ]
+      },
+      {
+        heading: '§5.2 同余 | Congruence of Integers',
+        body: [
+          r`定义：$a\equiv b\pmod n$ $\iff$ $n\mid(a-b)$（$n\in\mathbb{N}$）；等价地 $a$ 与 $b$ 除以 $n$ 余数相同。`,
+          r`自反、对称、传递：$a\equiv a$；$a\equiv b\Rightarrow b\equiv a$；$a\equiv b,b\equiv c\Rightarrow a\equiv c$。`,
+          r`同余对 $+,-,\times$ 封闭：若 $a\equiv b$ 且 $c\equiv d$，则 $a+c\equiv b+d$、$a-c\equiv b-d$、$ac\equiv bd$（模 $n$）。`,
+          r`例：若 $5\nmid xy$，则 $5\nmid x$ 且 $5\nmid y$。逆否：若 $5\mid x$ 或 $5\mid y$，则 $5\mid xy$。`,
+          r`同余的证明常把 $a=b+kn$ 代入；除法一般不保持同余，除非与 $n$ 互素。`
+        ]
+      },
+      {
+        heading: '§5.3 数学写作 | Mathematical Writing',
+        body: [
+          r`把证明写成完整句子：断句与连接词（because、since、hence、therefore、thus）不可省，符号之间要用文字隔开。`,
+          r`每个新变量都要先说明来源：写 $b=ac$ **for some integer $c$**，否则读者不知道 $c$ 是什么。`,
+          r`例：由 $a\mid b$ 应写 $b=ac$ for some $c\in\mathbb{Z}$；只写 $b=ac$ 会被扣分。`,
+          r`避免把"证明"写成"计算"：每一步都要说明为什么成立（定义、代数、已证结论）。`,
+          r`结论要明确写出 $Q$（或 $\sim P$）本身，并给出结束符号。`
+        ]
+      }
+    ]
+  },
   methods,
   examples,
   generators: { long: longGenerators, objective: objectiveGenerators }

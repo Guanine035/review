@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mth2168-review-v1';
+const CACHE_NAME = 'mth2168-review-v2';
 const CORE_ASSETS = [
   './',
   'index.html',

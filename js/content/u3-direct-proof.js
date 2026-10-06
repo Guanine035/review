@@ -404,6 +404,49 @@ export const unit = {
   titleZh: '直接证明',
   summary: '定义翻译、整除、奇偶性、分情况与 WLOG',
   notes,
+  textbook: {
+    source: '教材 Main.pdf §4.1–4.5 Direct Proof',
+    sections: [
+      {
+        heading: '§4.1 定理的结构 | Theorems',
+        body: [
+          r`**Axiom** 公理、**definition** 定义、**theorem** 定理、**proposition** 命题、**lemma** 引理、**corollary** 推论；证明只能引用已知定义、公理与已证结论。`,
+          r`本课程大多数定理是条件句 $\forall x,(P(x)\Rightarrow Q(x))$，或可改写成条件句；证明第一步就是识别 $P$ 与 $Q$。`,
+          r`例：$x$ 为奇数 $\Rightarrow$ $x^2$ 为奇数，也可写成 $\forall x\in\mathbb{Z},\ (x\text{ odd}\Rightarrow x^2\text{ odd})$。`,
+          r`证明固定开头 **Proof. Suppose P.**，结尾用 $\blacksquare$ 或 QED；要证明的是蕴含关系，不是验证若干例子。`
+        ]
+      },
+      {
+        heading: '§4.2 定义 | Definitions',
+        body: [
+          r`**Even**：$n=2a$（$a\in\mathbb{Z}$）；**Odd**：$n=2a+1$。奇偶性的所有证明最终都回到这两个等式。`,
+          r`**Divides**：$a\mid b$ 表示存在 $c\in\mathbb{Z}$ 使 $b=ac$；$a\nmid b$ 表示不存在这样的整数 $c$。`,
+          r`**Prime**：$p>1$ 且其正因数只有 $1$ 和 $p$；**composite**：$n=ab$，其中 $1<a\le b<n$。$1$ 既不是素数也不是合数。`,
+          r`**Rational**：$x=\frac{a}{b}$，$a,b\in\mathbb{Z}$，$b\neq 0$；**perfect square**：$n=a^2$（$a\in\mathbb{Z}$）。`,
+          r`定义中的"存在/对所有"要写清楚；证明时把定义展开成等式或不等式，这是每一步的依据。`
+        ]
+      },
+      {
+        heading: '§4.3 直接证明 | Direct Proof',
+        body: [
+          r`结构：Suppose $P$（把 $P$ 展开成定义）$\to$ 代数/逻辑变形 $\to$ 得到 $Q$（再写成定义形式）。`,
+          r`例：设 $x$ 为奇数，则 $x=2a+1$，$x^2=4a^2+4a+1=2(2a^2+2a)+1$，故 $x^2$ 为奇数。`,
+          r`例：若 $a\mid b$ 且 $b\mid c$，则 $b=am$、$c=bn$，于是 $c=a(mn)$，故 $a\mid c$。`,
+          r`例：若 $x$ 为偶数，则 $x^2-6x+5=2(2a^2-6a+2)+1$ 为奇数（把 $x=2a$ 代入并整理成 $2k+1$）。`,
+          r`整除证明的固定手法：把"整除"写成存在整数乘数，再用代换与分配律。`
+        ]
+      },
+      {
+        heading: '§4.4–4.5 分情况与 WLOG | Using Cases',
+        body: [
+          r`当 $P$ 不能一次处理时，把它分成互斥且穷尽的若干情况，每种情况分别推出 $Q$；所有情况都要写，不能漏。`,
+          r`例：两个整数奇偶性相反，则它们的和为奇数。按 $m$ 奇 $n$ 偶、$m$ 偶 $n$ 奇分两种情况进行。`,
+          r`**Without loss of generality (WLOG)**：当其余情况可由对称性（如交换变量名）由已证情况直接得到时，可以只证一种。`,
+          r`WLOG 必须说明对称性理由；若两种情况本质不同，就不能用 WLOG。`
+        ]
+      }
+    ]
+  },
   methods,
   examples,
   generators: { long: longGenerators, objective: objectiveGenerators }

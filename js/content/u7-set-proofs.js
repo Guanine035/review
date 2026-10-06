@@ -417,6 +417,39 @@ export const unit = {
   titleZh: '集合证明',
   summary: '元素追踪、包含与相等证明、笛卡尔积恒等式',
   notes,
+  textbook: {
+    source: '教材 Main.pdf §8.1–8.3 Proofs Involving Sets（§8.4 Perfect Numbers 不在范围）',
+    sections: [
+      {
+        heading: '§8.1 证明元素属于集合 | How to Prove a ∈ A',
+        body: [
+          r`要证 $a\in A$，就把 $A$ 的定义展开：若 $A=\{x:P(x)\}$，只需验证 $P(a)$；若 $A=\{x\in S:P(x)\}$，还要验证 $a\in S$。`,
+          r`例：$(8,23)\in B$，其中 $B=\{(x,y)\in\mathbb{Z}\times\mathbb{Z}:x\equiv y\pmod 5\}$。要验证 $(8,23)\in\mathbb{Z}\times\mathbb{Z}$ 且 $8\equiv 23\pmod 5$。`,
+          r`证明"不属于"则要说明 $P(a)$ 为假，或写出与定义矛盾的理由。`
+        ]
+      },
+      {
+        heading: '§8.2 证明包含关系 | How to Prove A ⊆ B',
+        body: [
+          r`结构：**Suppose $a\in A$.**（$a$ 任意）$\to$ 展开 $A$ 的定义 $\to$ 展开 $B$ 的定义 $\to$ **Therefore $a\in B$. $\blacksquare$**`,
+          r`例：$A\cap B\subseteq A$。设 $a\in A\cap B$，则 $a\in A$ 且 $a\in B$，特别地 $a\in A$，故 $A\cap B\subseteq A$。`,
+          r`例：若 $A\subseteq B$ 与 $B\subseteq C$，则 $A\subseteq C$（传递性）。设 $a\in A$，由 $A\subseteq B$ 得 $a\in B$，再由 $B\subseteq C$ 得 $a\in C$。`,
+          r`例：若 $\mathcal{P}(A)\subseteq\mathcal{P}(B)$，则 $A\subseteq B$。因为 $A\in\mathcal{P}(A)\subseteq\mathcal{P}(B)$，故 $A\subseteq B$。`,
+          r`关键句是 **take an arbitrary element**；只要 $a$ 是任取的，结论就对所有元素成立。`
+        ]
+      },
+      {
+        heading: '§8.3 证明集合相等 | How to Prove A = B',
+        body: [
+          r`$A=B$ $\iff$ $A\subseteq B$ 且 $B\subseteq A$，所以标准做法是 double inclusion：两个方向各写一次元素追踪。`,
+          r`例：$A\times(B\cap C)=(A\times B)\cap(A\times C)$。任取 $(x,y)\in A\times(B\cap C)$，则 $x\in A$ 且 $y\in B\cap C$，于是 $y\in B$、$y\in C$，从而 $(x,y)$ 同时属于 $A\times B$ 与 $A\times C$；反向同理。`,
+          r`例：$\overline{A\cup B}=\overline{A}\cap\overline{B}$。若 $x\in\overline{A\cup B}$，则 $x\notin A\cup B$，故 $x\notin A$ 且 $x\notin B$，即 $x\in\overline{A}\cap\overline{B}$；反向逐句倒推。`,
+          r`除包含关系外，"元素属于左边 $\iff$ 元素属于右边"也可作为集合相等证明的简写。`,
+          r`证明前先写清全集与 $\subseteq$ 的定义，避免把 $\in$ 与 $\subseteq$ 混用。`
+        ]
+      }
+    ]
+  },
   methods,
   examples,
   generators: { long: longGenerators, objective: objectiveGenerators }

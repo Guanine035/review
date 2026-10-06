@@ -513,6 +513,86 @@ export const unit = {
   titleZh: '集合',
   summary: '集合记号、幂集、笛卡尔积与集合运算',
   notes,
+  textbook: {
+    source: '教材 Main.pdf §1.1–1.9 Sets（§1.10 Russell’s Paradox 为背景内容，不在考试范围）',
+    sections: [
+      {
+        heading: '§1.1 集合与记号 | Introduction to Sets',
+        body: [
+          r`**Set**：对象的无序汇集；$x\in A$ 表示 $x$ 是 $A$ 的元素，$x\notin A$ 表示不是。列举法 $A=\{2,4,6,8\}$，描述法 $A=\{x:P(x)\}$ 或 $A=\{x\in S:P(x)\}$。`,
+          r`两个集合相等当且仅当元素完全相同：顺序与重复不影响，$\{2,4,6,8\}=\{8,6,4,2\}=\{2,2,4,6,8\}$。`,
+          r`常用数系：$\mathbb{N}=\{1,2,3,\dots\}$，$\mathbb{Z}=\{\dots,-2,-1,0,1,2,\dots\}$，$\mathbb{Q}=\{\frac{m}{n}:m,n\in\mathbb{Z},\ n\neq 0\}$，$\mathbb{R}$ 为实数集；$\varnothing$ 为空集，$|\varnothing|=0$。`,
+          r`区间记号：$[a,b]=\{x\in\mathbb{R}:a\le x\le b\}$，$(a,b)=\{x\in\mathbb{R}:a<x<b\}$，半开区间 $[a,b)$、$(a,b]$；$\mathbb{R}=(-\infty,\infty)$。`,
+          r`**Cardinality** $|X|$ 表示有限集 $X$ 的元素个数；符号 $|X|$ 在别处也表示绝对值，要看上下文。`
+        ]
+      },
+      {
+        heading: '§1.2 笛卡尔积 | The Cartesian Product',
+        body: [
+          r`**Ordered pair** $(a,b)$ 有序：$(a,b)=(c,d)\iff a=c$ 且 $b=d$，因此 $(2,4)\neq(4,2)$。`,
+          r`$A\times B=\{(a,b):a\in A,\ b\in B\}$；一般 $A\times B\neq B\times A$，但 $|A\times B|=|A|\,|B|$。`,
+          r`$n$-元组 $(x_1,\dots,x_n)$ 与笛卡尔幂 $A^n=A\times\cdots\times A$（$n$ 个因子）；$\mathbb{R}^2=\mathbb{R}\times\mathbb{R}$ 是平面，$\mathbb{R}^3$ 是空间。`,
+          r`只要有一个因子是空集，笛卡尔积就是空集：$A\times\varnothing=\varnothing$。`
+        ]
+      },
+      {
+        heading: '§1.3 子集 | Subsets',
+        body: [
+          r`$A\subseteq B$ $\iff$ 对每个 $x\in A$ 都有 $x\in B$；$A\nsubseteq B$ $\iff$ 存在 $a\in A$ 使 $a\notin B$。`,
+          r`$\varnothing\subseteq B$ 对任何集合 $B$ 成立；$A=B$ $\iff$ $A\subseteq B$ 且 $B\subseteq A$，这是证明集合相等的基本工具。`,
+          r`**Proper subset**（真子集）$A\subsetneq B$：$A\subseteq B$ 且 $A\neq B$。`,
+          r`含 $n$ 个元素的集合恰有 $2^n$ 个子集（包括 $\varnothing$ 与自身），与幂集 $|\mathcal{P}(A)|=2^{|A|}$ 互相印证。`,
+          r`易错：$\in$ 与 $\subseteq$ 不是一回事。$\varnothing\in\{\varnothing\}$ 成立，$\varnothing\subseteq\{\varnothing\}$ 也成立；但 $\{\varnothing\}\neq\varnothing$。`
+        ]
+      },
+      {
+        heading: '§1.4 幂集 | Power Sets',
+        body: [
+          r`$\mathcal{P}(A)=\{X:X\subseteq A\}$，即 $A$ 的全部子集组成的集合。`,
+          r`$|\mathcal{P}(A)|=2^{|A|}$；例如 $A=\{1,2,3\}$ 时 $\mathcal{P}(A)$ 有 8 个元素：$\varnothing,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}$。`,
+          r`$\varnothing\in\mathcal{P}(A)$ 且 $A\in\mathcal{P}(A)$；$\mathcal{P}(A)\subseteq\mathcal{P}(B)\iff A\subseteq B$（证明时用 $A\in\mathcal{P}(A)$ 这一事实）。`,
+          r`注意 $\mathcal{P}(\varnothing)=\{\varnothing\}$，其元素个数为 1 而不是 0。`
+        ]
+      },
+      {
+        heading: '§1.5 并、交、差 | Union, Intersection, Difference',
+        body: [
+          r`$A\cup B=\{x:x\in A \text{ 或 } x\in B\}$；$A\cap B=\{x:x\in A \text{ 且 } x\in B\}$；$A-B=\{x:x\in A \text{ 且 } x\notin B\}$。`,
+          r`一般 $A-B\neq B-A$：$A=\{1,2,3\},B=\{2,3,4\}$ 时 $A-B=\{1\}$，$B-A=\{4\}$。`,
+          r`**Disjoint**：$A\cap B=\varnothing$。恒有 $A\cap B\subseteq A\subseteq A\cup B$。`,
+          r`运算律：交换律、结合律，分配律 $A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$ 与 $A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$；$\varnothing\cup A=A$，$\varnothing\cap A=\varnothing$。`,
+          r`若 $A\subseteq B$，则 $A\cup B=B$、$A\cap B=A$。`
+        ]
+      },
+      {
+        heading: '§1.6 补集与 De Morgan | Complement',
+        body: [
+          r`固定全集 $U$ 后，$\overline{A}=U-A=\{x\in U:x\notin A\}$；补集依赖 $U$，换全集结果就不同。`,
+          r`$A\cup\overline{A}=U$，$A\cap\overline{A}=\varnothing$，$\overline{\overline{A}}=A$。`,
+          r`De Morgan（集合版）：$\overline{A\cup B}=\overline{A}\cap\overline{B}$，$\overline{A\cap B}=\overline{A}\cup\overline{B}$。`,
+          r`差集与补集的关系：$A-B=A\cap\overline{B}$。`
+        ]
+      },
+      {
+        heading: '§1.7–1.8 索引集 | Venn Diagrams and Indexed Sets',
+        body: [
+          r`Venn 图只用于启发思路，正式证明仍要用元素追踪（element chasing）。`,
+          r`索引族 $\{A_\alpha:\alpha\in I\}$ 的并 $\bigcup_{\alpha\in I}A_\alpha=\{x:\exists\alpha\in I,\ x\in A_\alpha\}$，交 $\bigcap_{\alpha\in I}A_\alpha=\{x:\forall\alpha\in I,\ x\in A_\alpha\}$。`,
+          r`有限情形 $\bigcup_{i=1}^{n}A_i=A_1\cup\cdots\cup A_n$；无限情形同样适用，例如 $\bigcap_{n\in\mathbb{N}}[0,\frac{1}{n}]=\{0\}$。`,
+          r`证明索引集等式时用否定规则：$\sim(\exists\alpha,\ x\in A_\alpha)\equiv\forall\alpha,\ x\notin A_\alpha$。`
+        ]
+      },
+      {
+        heading: '§1.9 数系与封闭性 | Sets That Are Number Systems',
+        body: [
+          r`$\mathbb{N}$ 对加法和乘法封闭，但对减法不封闭（$2-5\notin\mathbb{N}$）；$\mathbb{Z}$ 对 $+,-,\times$ 封闭，但对除法不封闭。`,
+          r`$\mathbb{Q}$ 对 $+,-,\times$ 封闭，且对非零除数封闭：若 $a,b\in\mathbb{Q}$ 且 $b\neq 0$，则 $a/b\in\mathbb{Q}$。`,
+          r`**Division Algorithm**：对 $a\in\mathbb{Z}$、$b\in\mathbb{N}$，存在唯一 $q,r$ 使 $a=bq+r$、$0\le r<b$。`,
+          r`**Well-ordering principle**：$\mathbb{N}$ 的任何非空子集都有最小元素；这是反证法与最小反例法的依据。`
+        ]
+      }
+    ]
+  },
   methods,
   examples,
   generators: { long: longGenerators, objective: objectiveGenerators }

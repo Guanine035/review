@@ -381,6 +381,45 @@ export const unit = {
   titleZh: '非条件命题',
   summary: 'iff 证明、存在性与唯一性、构造与非构造',
   notes,
+  textbook: {
+    source: '教材 Main.pdf §7.1–7.4 Proving Non-Conditional Statements',
+    sections: [
+      {
+        heading: '§7.1 当且仅当 | If-and-Only-If Proof',
+        body: [
+          r`$P\Leftrightarrow Q$ 的证明分两部分：($\Rightarrow$) 假设 $P$ 证 $Q$；($\Leftarrow$) 假设 $Q$ 证 $P$。两个方向都要写清楚。`,
+          r`例：$n$ 为奇数 $\iff$ $n^2$ 为奇数。($\Rightarrow$) 直接证明；($\Leftarrow$) 用逆否：$n$ 为偶数 $\Rightarrow$ $n^2$ 为偶数。`,
+          r`若两方向证明过程可逆，不要简单写"反之亦然"，要说明每一步确实可逆，或分别写出。`,
+          r`证明中要标注方向，例如 **($\Rightarrow$)** 与 **($\Leftarrow$)**，方便评分。`
+        ]
+      },
+      {
+        heading: '§7.2 等价命题链 | Equivalent Statements',
+        body: [
+          r`要证 $P_1\Leftrightarrow P_2\Leftrightarrow\cdots\Leftrightarrow P_n$，只需证链 $P_1\Rightarrow P_2\Rightarrow\cdots\Rightarrow P_n\Rightarrow P_1$，不必做 $n(n-1)$ 个方向。`,
+          r`例：对 $n\in\mathbb{Z}$，以下等价：$n$ 为偶数；$n+1$ 为奇数；$n^2$ 为偶数。证 $P_1\Rightarrow P_2\Rightarrow P_3\Rightarrow P_1$。`,
+          r`每条箭头都要写成完整证明；链式结构只为减少重复，不是省略理由的借口。`
+        ]
+      },
+      {
+        heading: '§7.3 存在性与唯一性 | Existence and Uniqueness',
+        body: [
+          r`证 $\exists x,P(x)$：给出具体 witness（构造），再验证 $P$ 成立。例：证明存在偶素数——取 $x=2$。`,
+          r`证存在且唯一 $\exists!x,P(x)$：分两步。**Existence**：找出至少一个 $x$；**Uniqueness**：假设 $P(x)$ 与 $P(y)$，推出 $x=y$。`,
+          r`例：若 $a,b\in\mathbb{R}$ 且 $a\neq 0$，方程 $ax+b=0$ 有唯一解 $x=-\frac{b}{a}$。存在性给解；唯一性设 $ax+b=0$ 与 $ay+b=0$ 相减得 $a(x-y)=0$，故 $x=y$。`,
+          r`唯一性不要写成"只有一个"，要写成 $P(x)\land P(y)\Rightarrow x=y$。`
+        ]
+      },
+      {
+        heading: '§7.4 构造与非构造 | Constructive vs Non-Constructive',
+        body: [
+          r`**Constructive proof**：明确给出 witness。**Non-constructive proof**：只证明存在，不指出具体是谁。`,
+          r`经典非构造例：存在无理数 $x,y$ 使 $x^y$ 为有理数。考虑 $x=y=\sqrt{2}$：若 $\sqrt{2}^{\sqrt{2}}$ 有理，则取之；否则取 $x=\sqrt{2}^{\sqrt{2}}$、$y=\sqrt{2}$，则 $x^y=\sqrt{2}^{2}=2$ 有理。两种情况必有一种成立。`,
+          r`非构造证明同样有效，但考试要看清题目是否要求"找出/给出"（则必须构造）。`
+        ]
+      }
+    ]
+  },
   methods,
   examples,
   generators: { long: longGenerators, objective: objectiveGenerators }

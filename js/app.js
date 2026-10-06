@@ -120,6 +120,18 @@ function notesView() {
           .join('')}</section>`
     )
     .join('')}
+  ${
+    unit.textbook
+      ? `<section class="card"><h2>教材精读 Textbook</h2><p class="small muted">${escapeHtml(unit.textbook.source)}</p>${unit.textbook.sections
+          .map(
+            (section) =>
+              `<h4>${escapeHtml(section.heading)}</h4>${section.body
+                .map((paragraph) => `<p>${rich(paragraph)}</p>`)
+                .join('')}`
+          )
+          .join('')}</section>`
+      : ''
+  }
   <section class="card"><h2>方法模板 Method templates</h2>${unit.methods
     .map(
       (method) =>
